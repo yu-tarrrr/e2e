@@ -20,5 +20,7 @@ async function access(url: string): Promise<void> {
   );
   const page = await browser.newPage();
   await page.goto(url)
+  const headersCount = await page.$$eval('#h_nav .clearfix > li', headers => headers.length);
+  console.log(headersCount)
   await browser.close();
 }
